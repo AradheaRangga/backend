@@ -37,8 +37,7 @@ export const getAllPatient = async () => {
     .select({
       ...getTableColumns(patients),
     })
-    .from(patients)
-    .leftJoin(iotDevices, eq(patients.id, iotDevices.patientId));
+    .from(patients);
 
   return query;
 };

@@ -4,7 +4,7 @@ import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const patientRoutes = express.Router();
 
-patientRoutes.get("/", authMiddleware, async (req, res) => {
+patientRoutes.get("/get-all-patient", authMiddleware, async (req, res) => {
   try {
     const patient = await getAllPatient();
 
@@ -35,7 +35,7 @@ patientRoutes.post("/add-patient", authMiddleware, async (req, res) => {
       bodyWeight,
       bodyHeight,
       bloodType,
-      allergies
+      allergies ?? null
     );
 
     return res
