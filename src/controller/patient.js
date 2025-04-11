@@ -2,6 +2,7 @@ import { patients } from "../../database/platform/schemas/patients.js";
 import { iotDevices } from "../../database/platform/schemas/iotDevices.js";
 import { db } from "../../libs/db.js";
 import { getTableColumns, eq } from "drizzle-orm";
+import { v4 as uuid } from "uuid";
 
 export const addPatients = async (
   name,
@@ -11,13 +12,14 @@ export const addPatients = async (
   bodyWeight,
   bodyHeight,
   bloodType,
-  allergies,
-  phone,
-  email
+  allergies
 ) => {
+  const patientId = uuid();
+
   const query = await db
     .insert(patients)
     .values({
+      id: patientId,
       name,
       age,
       gender,

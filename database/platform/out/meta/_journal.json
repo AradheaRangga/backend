@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1743867107044,
-      "tag": "0000_real_captain_universe",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1744346446501,
-      "tag": "0001_faithful_omega_flight",
+      "when": 1744387357609,
+      "tag": "0000_mean_ozymandias",
       "breakpoints": true
     }
   ]

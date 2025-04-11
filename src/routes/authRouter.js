@@ -47,12 +47,17 @@ authRoutes.post("/sign-in", async (req, res) => {
 
   const user = await getUserByEmail(email);
   if (!user) {
-    return res.status(401).json({ message: "Invalid email or password" });
+    return res
+      .status(401)
+      .json({
+        message:
+          "Email not found or invalid, please sign up or check your email",
+      });
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
-    return res.status(401).json({ message: "Invalid email or password" });
+    return res.status(401).json({ message: "Invalid password" });
   }
 
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
@@ -69,13 +74,15 @@ authRoutes.post("/sign-in", async (req, res) => {
 
 authRoutes.post("/sign-out", authMiddleware, async (req, res) => {
   try {
-    const token = req.headers["Authorization"].split(" ")[1];
-
+    const token = req.headers["authorization"].split(" ")[1];
+    console.log("token", token);
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
     }
+    console.log("token", token);
 
     const userId = req.user.id;
+    console.log("userId", userId);
 
     await insertBlacklistToken(token, userId);
 

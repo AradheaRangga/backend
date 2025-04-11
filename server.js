@@ -15,7 +15,13 @@ initializeMQTT();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 // Middleware untuk parsing JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

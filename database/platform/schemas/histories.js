@@ -4,7 +4,7 @@ import { iotDevices } from "./iotDevices.js";
 
 export const histories = pgTable("histories", {
   id: serial("id").primaryKey(),
-  patient_id: integer("patient_id")
+  patient_id: text("patient_id")
     .references(() => patients.id)
     .notNull(),
   device_id: integer("device_id")

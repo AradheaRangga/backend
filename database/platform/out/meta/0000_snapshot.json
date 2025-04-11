@@ -1,5 +1,5 @@
 {
-  "id": "01ae3859-4485-498b-9e72-ac4f712b585b",
+  "id": "eaf878f5-d7a9-4c13-b74b-5b889c93ceb1",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -10,7 +10,7 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "serial",
           "primaryKey": true,
           "notNull": true
         },
@@ -68,7 +68,7 @@
         },
         "patient_id": {
           "name": "patient_id",
-          "type": "integer",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
@@ -144,14 +144,14 @@
           "primaryKey": true,
           "notNull": true
         },
-        "bloodPressure": {
-          "name": "bloodPressure",
+        "blood_pressure": {
+          "name": "blood_pressure",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "heartRate": {
-          "name": "heartRate",
+        "heart_rate": {
+          "name": "heart_rate",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -168,8 +168,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "oxygenSaturation": {
-          "name": "oxygenSaturation",
+        "oxygen_saturation": {
+          "name": "oxygen_saturation",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -196,7 +196,7 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "text",
           "primaryKey": true,
           "notNull": true
         },
@@ -224,17 +224,29 @@
           "primaryKey": false,
           "notNull": false
         },
-        "phone": {
-          "name": "phone",
+        "body_weight": {
+          "name": "body_weight",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "email": {
-          "name": "email",
+        "body_height": {
+          "name": "body_height",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
+        },
+        "blood_type": {
+          "name": "blood_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "allergies": {
+          "name": "allergies",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "created_at": {
           "name": "created_at",
@@ -295,7 +307,7 @@
         },
         "patient_id": {
           "name": "patient_id",
-          "type": "integer",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         }

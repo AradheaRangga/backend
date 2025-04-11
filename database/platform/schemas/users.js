@@ -7,5 +7,5 @@ export const users = pgTable("users", {
   email: text("email").notNull(),
   password: text("password").notNull(),
   phone: text("phone").notNull(),
-  patient_id: integer("patient_id").references(() => patients.id),
+  patient_id: text("patient_id").references(() => patients.id),
 });
